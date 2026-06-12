@@ -1,0 +1,102 @@
+---
+import { profile } from "../data/profile";
+---
+
+<section id="education" class="section">
+  <div class="container">
+    <p class="section-title">Образование</p>
+    <h2 class="section-heading">Обучение и сертификаты</h2>
+    <div class="edu-grid">
+      {
+        profile.education.map((item) => (
+          <div class="edu-card">
+            <span class="edu-year">{item.year}</span>
+            <h3>{item.title}</h3>
+            <p>
+              {item.institution}
+              {item.location && ` · ${item.location}`}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+    <div class="certificates">
+      <h3>Сертификаты</h3>
+      <div class="cert-list">
+        {
+          profile.certificates.map((cert) => (
+            <span class="cert-badge">{cert}</span>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .edu-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: border-color 0.2s;
+  }
+
+  .edu-card:hover {
+    border-color: var(--border-hover);
+  }
+
+  .edu-year {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent);
+    background: var(--accent-dim);
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 12px;
+  }
+
+  .edu-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .edu-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .certificates h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .cert-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .cert-badge {
+    padding: 10px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+</style>

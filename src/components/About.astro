@@ -1,0 +1,101 @@
+---
+import { profile } from "../data/profile";
+---
+
+<section id="about" class="section">
+  <div class="container">
+    <p class="section-title">Обо мне</p>
+    <h2 class="section-heading">Кто я и чем занимаюсь</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        {
+          profile.about.split("\n\n").map((paragraph) => (
+            <p>{paragraph}</p>
+          ))
+        }
+      </div>
+      <div class="about-languages">
+        <h3>Языки</h3>
+        <ul>
+          {
+            profile.languages.map((lang) => (
+              <li>
+                <span class="lang-name">{lang.name}</span>
+                <span class="lang-level">{lang.level}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    gap: 40px;
+  }
+
+  .about-text p {
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .about-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .about-languages {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+  }
+
+  .about-languages h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .about-languages ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .about-languages li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-languages li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .lang-name {
+    font-weight: 500;
+  }
+
+  .lang-level {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  @media (min-width: 768px) {
+    .about-grid {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,108 @@
+---
+import { profile } from "../data/profile";
+
+const categories = [
+  {
+    title: "CI/CD & GitOps",
+    items: ["GitLab CI/CD", "Jenkins", "ArgoCD", "CI/CD", "Git", "Nexus"],
+  },
+  {
+    title: "Контейнеризация & Оркестрация",
+    items: ["Kubernetes", "Docker", "Linux", "Nginx"],
+  },
+  {
+    title: "Мониторинг & Observability",
+    items: ["Prometheus", "Grafana", "Sentry"],
+  },
+  {
+    title: "Автоматизация & IaC",
+    items: ["Ansible", "Terraform", "Bash", "Python"],
+  },
+  {
+    title: "Базы данных",
+    items: ["PostgreSQL", "MongoDB", "Redis"],
+  },
+];
+---
+
+<section id="skills" class="section">
+  <div class="container">
+    <p class="section-title">Навыки</p>
+    <h2 class="section-heading">Технологический стек</h2>
+    <div class="skills-grid">
+      {
+        categories.map((cat) => (
+          <div class="skill-group">
+            <h3>{cat.title}</h3>
+            <div class="skill-tags">
+              {cat.items.map((skill) => (
+                <span class="skill-tag">{skill}</span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <div class="all-skills">
+      {
+        profile.skills.map((skill) => (
+          <span class="tag">{skill}</span>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .skill-group {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+  }
+
+  .skill-group h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-tag {
+    padding: 6px 14px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .skill-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .all-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+</style>

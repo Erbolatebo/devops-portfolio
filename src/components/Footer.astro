@@ -1,0 +1,36 @@
+---
+import { profile } from "../data/profile";
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p class="footer-copy">
+      © {year} {profile.name}. DevOps-инженер.
+    </p>
+    <p class="footer-built">
+      Собрано на <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .footer-copy,
+  .footer-built {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+</style>

@@ -1,0 +1,194 @@
+---
+import { profile } from "../data/profile";
+const { contacts } = profile;
+---
+
+<section id="contact" class="section contact-section">
+  <div class="container">
+    <p class="section-title">Контакты</p>
+    <h2 class="section-heading">Давайте обсудим сотрудничество</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p class="contact-lead">
+          Ищу позицию Middle DevOps Engineer. Готов к полной занятости в Алматы — офис или гибрид.
+        </p>
+        <div class="contact-cards">
+          <a href={`mailto:${contacts.email}`} class="contact-card">
+            <span class="contact-icon" aria-hidden="true">✉</span>
+            <div>
+              <span class="contact-label">Email</span>
+              <span class="contact-value">{contacts.email}</span>
+            </div>
+          </a>
+          <a href={`tel:${contacts.phone.replace(/\s|\(|\)|-/g, "")}`} class="contact-card">
+            <span class="contact-icon" aria-hidden="true">📞</span>
+            <div>
+              <span class="contact-label">Телефон</span>
+              <span class="contact-value">{contacts.phone}</span>
+            </div>
+          </a>
+          <a href={contacts.telegramUrl} target="_blank" rel="noopener noreferrer" class="contact-card">
+            <span class="contact-icon" aria-hidden="true">💬</span>
+            <div>
+              <span class="contact-label">Telegram</span>
+              <span class="contact-value">{contacts.telegram}</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-terminal">
+        <div class="terminal-header">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">erbolat@devops ~</span>
+        </div>
+        <div class="terminal-body">
+          <p><span class="prompt">$</span> whoami</p>
+          <p class="output">erbolat-usser — devops-engineer</p>
+          <p><span class="prompt">$</span> cat skills.txt</p>
+          <p class="output">kubernetes, cicd, monitoring, automation</p>
+          <p><span class="prompt">$</span> echo $STATUS</p>
+          <p class="output accent">open_to_work</p>
+          <p><span class="prompt">$</span> <span class="cursor">_</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    padding-bottom: 100px;
+  }
+
+  .contact-grid {
+    display: grid;
+    gap: 32px;
+  }
+
+  .contact-lead {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 28px;
+    max-width: 480px;
+  }
+
+  .contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .contact-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .contact-card:hover {
+    opacity: 1;
+    border-color: var(--accent);
+    transform: translateX(4px);
+  }
+
+  .contact-icon {
+    font-size: 1.25rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-dim);
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+  }
+
+  .contact-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .contact-value {
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .contact-terminal {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+  }
+
+  .terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: var(--bg-elevated);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .terminal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .terminal-dot.red { background: #ff5f57; }
+  .terminal-dot.yellow { background: #febc2e; }
+  .terminal-dot.green { background: #28c840; }
+
+  .terminal-title {
+    margin-left: 8px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .terminal-body {
+    padding: 20px;
+    line-height: 1.8;
+  }
+
+  .prompt {
+    color: var(--accent);
+  }
+
+  .output {
+    color: var(--text-muted);
+    padding-left: 16px;
+  }
+
+  .output.accent {
+    color: var(--accent);
+  }
+
+  .cursor {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  @media (min-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+</style>

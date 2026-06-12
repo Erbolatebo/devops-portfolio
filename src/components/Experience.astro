@@ -1,0 +1,184 @@
+---
+import { profile } from "../data/profile";
+---
+
+<section id="experience" class="section">
+  <div class="container">
+    <p class="section-title">Опыт работы</p>
+    <h2 class="section-heading">Где работал и что делал</h2>
+    <div class="timeline">
+      {
+        profile.experience.map((job, index) => (
+          <article class="job-card">
+            <div class="job-marker">
+              <span class="marker-dot" />
+              {index < profile.experience.length - 1 && <span class="marker-line" />}
+            </div>
+            <div class="job-content">
+              <div class="job-header">
+                <div>
+                  <h3 class="job-company">{job.company}</h3>
+                  <p class="job-role">{job.role}</p>
+                </div>
+                <div class="job-period">
+                  <time>{job.period}</time>
+                  <span class="job-duration">{job.duration}</span>
+                </div>
+              </div>
+              <p class="job-location">{job.location}</p>
+              <p class="job-description">{job.description}</p>
+              <ul class="job-achievements">
+                {job.achievements.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+              <div class="job-tags">
+                {job.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .job-card {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 0 24px;
+  }
+
+  .job-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6px;
+  }
+
+  .marker-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-dim);
+    flex-shrink: 0;
+  }
+
+  .marker-line {
+    width: 2px;
+    flex: 1;
+    background: var(--border);
+    margin: 8px 0;
+    min-height: 40px;
+  }
+
+  .job-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+    transition: border-color 0.2s;
+  }
+
+  .job-content:hover {
+    border-color: var(--border-hover);
+  }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 4px;
+  }
+
+  .job-company {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .job-role {
+    color: var(--accent);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .job-period {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .job-period time {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .job-duration {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    opacity: 0.7;
+  }
+
+  .job-location {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .job-description {
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    line-height: 1.7;
+  }
+
+  .job-achievements {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+
+  .job-achievements li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .job-achievements li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.8rem;
+  }
+
+  .job-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  @media (max-width: 640px) {
+    .job-header {
+      flex-direction: column;
+    }
+
+    .job-period {
+      text-align: left;
+    }
+  }
+</style>
