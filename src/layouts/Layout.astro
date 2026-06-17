@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = "Ерболат Усер — DevOps-инженер (Junior+ / Middle)",
-  description = "DevOps-инженер с 2+ годами опыта в production: CI/CD, Kubernetes, observability. Ускорение деплоя в 4 раза, MTTD 5 минут.",
+  title = "Ерболат Усер — DevOps Engineer",
+  description = "DevOps Engineer с 2+ годами commercial production-опыта: CI/CD, Kubernetes, observability, automation. Ускорение деплоя в 4 раза, MTTD 5 минут.",
 } = Astro.props;
 ---
 
@@ -19,9 +19,11 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="author" content="Ерболат Усер" />
+    <meta name="robots" content="index,follow" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_RU" />
     <meta name="theme-color" content="#0b0f14" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

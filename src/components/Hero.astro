@@ -28,12 +28,12 @@ import { profile } from "../data/profile";
             <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
             <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
           </svg>
-          Полная занятость · Гибрид
+          CI/CD · Kubernetes · Observability
         </span>
       </div>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">Связаться</a>
-        <a href="#experience" class="btn btn-outline">Смотреть опыт</a>
+        <a href="#strengths" class="btn btn-outline">Смотреть кейсы</a>
       </div>
     </div>
 
@@ -103,22 +103,23 @@ import { profile } from "../data/profile";
   }
 
   .hero-level {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--text-muted);
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    padding: 4px 10px;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px solid rgba(34, 211, 168, 0.2);
+    padding: 5px 10px;
     border-radius: 999px;
   }
 
   .hero-tagline {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    max-width: 560px;
+    font-size: 1.08rem;
+    color: var(--text);
+    max-width: 620px;
     margin-bottom: 24px;
+    line-height: 1.75;
   }
 
   .hero-meta {
@@ -163,6 +164,7 @@ import { profile } from "../data/profile";
 
   .stat-card:hover {
     border-color: var(--border-hover);
+    transform: translateY(-2px);
   }
 
   .stat-value {

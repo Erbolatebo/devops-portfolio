@@ -10,7 +10,7 @@ const { contacts } = profile;
     <div class="contact-grid">
       <div class="contact-info">
         <p class="contact-lead">
-          Ищу позицию Middle DevOps Engineer (готов рассмотреть сильный Junior+). Полная занятость в Алматы — офис или гибрид. Интересны команды с production-нагрузкой и зрелыми CI/CD-процессами.
+          Интересны команды, где DevOps отвечает не только за сборку, но и за надежность delivery-контура, эксплуатацию Kubernetes и наблюдаемость production-сервисов. Формат работы: полная занятость, Алматы, гибрид или офис.
         </p>
         <div class="contact-cards">
           <a href={`mailto:${contacts.email}`} class="contact-card">
@@ -36,22 +36,17 @@ const { contacts } = profile;
           </a>
         </div>
       </div>
-      <div class="contact-terminal">
-        <div class="terminal-header">
-          <span class="terminal-dot red"></span>
-          <span class="terminal-dot yellow"></span>
-          <span class="terminal-dot green"></span>
-          <span class="terminal-title">erbolat@devops ~</span>
-        </div>
-        <div class="terminal-body">
-          <p><span class="prompt">$</span> whoami</p>
-          <p class="output">erbolat-usser — devops-engineer</p>
-          <p><span class="prompt">$</span> cat skills.txt</p>
-          <p class="output">kubernetes, cicd, monitoring, automation</p>
-          <p><span class="prompt">$</span> echo $STATUS</p>
-          <p class="output accent">open_to_work</p>
-          <p><span class="prompt">$</span> <span class="cursor">_</span></p>
-        </div>
+      <div class="contact-panel">
+        <p class="panel-title">Что беру в работу</p>
+        <ul class="contact-points">
+          <li>CI/CD-процессы и сокращение времени доставки изменений</li>
+          <li>Kubernetes runtime: deploy, config, ingress, secrets, troubleshooting</li>
+          <li>Monitoring, alerting и разбор production-инцидентов</li>
+          <li>Автоматизация типовых операций через Ansible и Bash</li>
+        </ul>
+        <p class="panel-note">
+          Предпочтительны команды с production-нагрузкой, релизной дисциплиной и понятной инженерной ответственностью.
+        </p>
       </div>
     </div>
   </div>
@@ -125,64 +120,50 @@ const { contacts } = profile;
     font-weight: 500;
   }
 
-  .contact-terminal {
+  .contact-panel {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    overflow: hidden;
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
+    padding: 28px;
   }
 
-  .terminal-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 16px;
-    background: var(--bg-elevated);
-    border-bottom: 1px solid var(--border);
+  .panel-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
   }
 
-  .terminal-dot {
-    width: 10px;
-    height: 10px;
+  .contact-points {
+    list-style: none;
+    display: grid;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .contact-points li {
+    position: relative;
+    padding-left: 18px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  .contact-points li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
+    background: var(--accent);
   }
 
-  .terminal-dot.red { background: #ff5f57; }
-  .terminal-dot.yellow { background: #febc2e; }
-  .terminal-dot.green { background: #28c840; }
-
-  .terminal-title {
-    margin-left: 8px;
-    font-size: 0.75rem;
+  .panel-note {
     color: var(--text-muted);
-  }
-
-  .terminal-body {
-    padding: 20px;
-    line-height: 1.8;
-  }
-
-  .prompt {
-    color: var(--accent);
-  }
-
-  .output {
-    color: var(--text-muted);
-    padding-left: 16px;
-  }
-
-  .output.accent {
-    color: var(--accent);
-  }
-
-  .cursor {
-    animation: blink 1s step-end infinite;
-  }
-
-  @keyframes blink {
-    50% { opacity: 0; }
+    line-height: 1.7;
   }
 
   @media (min-width: 768px) {

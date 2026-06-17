@@ -4,14 +4,20 @@ import { profile } from "../data/profile";
 
 <section id="strengths" class="section strengths-section">
   <div class="container">
-    <p class="section-title">Фокус</p>
-    <h2 class="section-heading">Чем могу быть полезен команде</h2>
+    <p class="section-title">Ключевые кейсы</p>
+    <h2 class="section-heading">Где уже приносил измеримый результат</h2>
     <div class="strengths-grid">
       {
-        profile.strengths.map((item) => (
+        profile.caseStudies.map((item) => (
           <article class="strength-card">
+            <p class="case-scope">{item.scope}</p>
             <h3>{item.title}</h3>
-            <p>{item.description}</p>
+            <p class="case-summary">{item.summary}</p>
+            <ul class="case-impact">
+              {item.impact.map((point) => (
+                <li>{point}</li>
+              ))}
+            </ul>
           </article>
         ))
       }
@@ -26,7 +32,7 @@ import { profile } from "../data/profile";
 
   .strengths-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
   }
 
@@ -44,15 +50,50 @@ import { profile } from "../data/profile";
   }
 
   .strength-card h3 {
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 600;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .case-scope {
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 12px;
   }
 
-  .strength-card p {
+  .case-summary {
     font-size: 0.9rem;
     color: var(--text-muted);
     line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .case-impact {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+  }
+
+  .case-impact li {
+    position: relative;
+    padding-left: 18px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .case-impact li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
   }
 </style>
