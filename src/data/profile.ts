@@ -1,19 +1,42 @@
 export const profile = {
   name: "Ерболат Усер",
   title: "DevOps-инженер",
+  targetRole: "Junior+ / Middle",
   location: "Алматы, Казахстан",
   tagline:
-    "Сопровождение production-инфраструктуры, CI/CD, Kubernetes и observability",
-  about: `DevOps-инженер с 2+ годами опыта в сопровождении production-инфраструктуры, построении CI/CD-процессов, Kubernetes-окружений и систем мониторинга. Работал с GitLab CI/CD, Jenkins, Docker, Kubernetes, ArgoCD, Nexus, Nginx, Prometheus, Grafana, Alertmanager и Sentry.
+    "Production CI/CD, Kubernetes и observability — от сборки до разбора инцидента в проде",
+  about: `DevOps-инженер с 2+ годами коммерческого опыта в production-окружениях fintech и e-commerce. Отвечал за CI/CD, Kubernetes, мониторинг и автоматизацию на двух клиентских проектах с реальным трафиком и SLA.
 
-Сильная сторона — troubleshooting CI/CD, Kubernetes, Nginx/proxy, мониторинга и инфраструктурных инцидентов. Участвовал в поддержке production-сервисов, оптимизации пайплайнов, автоматизации рутинных операций через Ansible/Bash и взаимодействии с командами разработки, QA, инфраструктуры и внешними вендорами.
+Сильные стороны — ускорение delivery-процессов, сопровождение K8s-кластеров и быстрый troubleshooting: CI/CD, контейнеры, Nginx/proxy, метрики и алерты. Умею работать на стыке разработки, QA и инфраструктуры: релизы, инциденты, оптимизация пайплайнов, Ansible/Bash-автоматизация.
 
-Целевой фокус: развитие в роли Middle DevOps Engineer с упором на CI/CD, Kubernetes, observability, automation и reliability production-сервисов.`,
+Цель — Middle DevOps Engineer (открыт к сильной позиции Junior+) в продуктовой или аутсорс-команде с фокусом на reliability, observability и предсказуемые релизы.`,
+  strengths: [
+    {
+      title: "CI/CD & Delivery",
+      description:
+        "GitLab CI, Jenkins, Nexus. Оптимизация пайплайнов, кэш, multi-stage Docker, versioning и доставка артефактов в dev/test/prod.",
+    },
+    {
+      title: "Kubernetes & Runtime",
+      description:
+        "Deployments, Services, Ingress, PVC, ConfigMap, Secrets. GitOps через ArgoCD. Деплой релизов и разбор падений pod'ов в production.",
+    },
+    {
+      title: "Observability",
+      description:
+        "Prometheus, Grafana, Alertmanager, Sentry. Дашборды, alert rules, снижение MTTD и быстрее обнаружение ошибок в test/prod.",
+    },
+    {
+      title: "Automation & Incidents",
+      description:
+        "Ansible, Bash, Linux, Nginx. Автоматизация рутины, reverse proxy, участие в production-инцидентах и post-mortem разборе.",
+    },
+  ],
   highlights: [
-    { value: "2.5+", label: "года опыта" },
-    { value: "8 мин", label: "среднее время деплоя" },
-    { value: "5 мин", label: "обнаружение инцидентов" },
-    { value: "40%", label: "меньше необнаруженных ошибок" },
+    { value: "2.5+", label: "года в production" },
+    { value: "×4", label: "ускорение деплоя" },
+    { value: "5 мин", label: "MTTD инцидентов" },
+    { value: "2", label: "production-проекта" },
   ],
   contacts: {
     email: "erbolatusa@gmail.com",
@@ -25,22 +48,33 @@ export const profile = {
   experience: [
     {
       company: "Krisbit",
-      location: "Алматы",
+      location: "Алматы · аутсорсинг",
       role: "DevOps-инженер",
       period: "Декабрь 2024 — настоящее время",
       duration: "1 год 7 месяцев",
       description:
-        "Работал в аутсорсинговой команде над двумя клиентскими production-проектами: betting/e-commerce и banking/fintech. Отвечал за CI/CD, Kubernetes, Docker/Nexus, Jenkins/GitLab CI, Nginx, мониторинг и инфраструктурную автоматизацию.",
+        "Сопровождение двух клиентских production-проектов (fintech/banking и betting/e-commerce). Зона ответственности: CI/CD, Kubernetes, Docker/Nexus, Jenkins/GitLab CI, Nginx, мониторинг и инфраструктурная автоматизация.",
       achievements: [
-        "Сократил среднее время деплоя с ~30 до ~8 минут за счёт оптимизации pipeline stages, cache и сборки Docker-образов",
-        "Сопровождал Kubernetes-окружения (dev/test/prod): Deployments, Services, Ingress, PVC, ConfigMap, Secrets, GitOps/ArgoCD",
-        "Автоматизировал инфраструктурные операции через Ansible и Bash — экономия ~6 часов в неделю",
-        "Сократил среднее время обнаружения инцидентов с ~20 до ~5 минут через Prometheus, Grafana, Alertmanager",
-        "Развернул Sentry для мониторинга ошибок — снижение необнаруженных ошибок примерно на 40%",
-        "Настроил сборку и публикацию CocoaPods mirror во внутренний Nexus для iOS-сборок",
-        "Сопровождал CI/CD для backend, mobile и miniapp mPaaS-направлений совместно с командой Ant",
+        "Ускорил среднее время деплоя с ~30 до ~8 минут (~73%): оптимизация stages, cache, variables и multi-stage сборки Docker-образов",
+        "Сократил MTTD production-инцидентов с ~20 до ~5 минут: дашборды, метрики и alert rules в Prometheus/Grafana/Alertmanager",
+        "Автоматизировал повторяющиеся инфраструктурные операции через Ansible и Bash — экономия ~6 часов ручной работы в неделю",
+        "Внедрил Sentry для error tracking в test/prod; снизил долю необнаруженных ошибок примерно на 40%",
+        "Сопровождал Kubernetes-окружения dev/test/prod: релизы, конфигурации, Ingress, PVC, Secrets; GitOps-деплой через ArgoCD",
+        "Настроил процесс сборки, версионирования и публикации Docker-образов во внутренний и внешний Nexus Repository",
+        "Поддерживал CI/CD для backend, mobile и miniapp (mPaaS): Jenkins jobs, GitLab integration, доставка артефактов, разбор pipeline failures",
+        "Организовал регулярную сборку CocoaPods mirror во внутренний Nexus для стабильных iOS-сборок и внутренних зависимостей",
+        "Участвовал в production troubleshooting: K8s events/logs, container failures, CI/CD errors, Nginx/proxy и сетевые проблемы",
       ],
-      tags: ["Kubernetes", "GitLab CI", "Jenkins", "ArgoCD", "Prometheus", "Ansible"],
+      tags: [
+        "Kubernetes",
+        "GitLab CI",
+        "Jenkins",
+        "ArgoCD",
+        "Prometheus",
+        "Ansible",
+        "Nexus",
+        "Sentry",
+      ],
     },
     {
       company: "Global Rise Technologies",
@@ -49,38 +83,75 @@ export const profile = {
       period: "Февраль 2024 — Декабрь 2024",
       duration: "11 месяцев",
       description:
-        "Первый коммерческий опыт в DevOps-команде: CI/CD, контейнеризация, Kubernetes, Nginx, автоматизация и мониторинг.",
+        "Коммерческий DevOps в продуктовой команде: построение CI/CD, контейнеризация сервисов, базовая observability и поддержка Kubernetes-окружений.",
       achievements: [
-        "Настраивал GitLab CI/CD pipelines для сборки Docker-образов и деплоя в Kubernetes",
-        "Работал с Kubernetes-ресурсами: Deployments, Services, Ingress, PVC; troubleshooting приложений",
-        "Контейнеризировал приложения с Docker и Docker Compose, дорабатывал Dockerfile",
-        "Писал Ansible playbooks и Bash-скрипты для автоматизации повторяющихся задач",
-        "Настраивал Nginx reverse proxy и мониторинг Prometheus/Grafana, базовое логирование через ELK",
+        "Настроил GitLab CI/CD pipelines: build → Docker image → deploy в Kubernetes для нескольких сервисов",
+        "Поддерживал Kubernetes workloads (Deployments, Services, Ingress, PVC); диагностировал падения приложений и проблемы окружения",
+        "Контейнеризировал сервисы через Docker/Docker Compose; дорабатывал Dockerfile под требования проектов",
+        "Писал Ansible playbooks и Bash-скрипты для автоматизации типовых операций и подготовки серверов",
+        "Настраивал Nginx reverse proxy для публикации сервисов и маршрутизации трафика",
+        "Разворачивал мониторинг Prometheus/Grafana и базовое логирование через ELK Stack",
+        "Работал с Git flow: feature branches, merge requests, code review, разрешение конфликтов",
       ],
       tags: ["GitLab CI", "Docker", "Kubernetes", "Nginx", "Ansible", "ELK"],
     },
   ],
+  skillCategories: [
+    {
+      title: "Основной стек",
+      subtitle: "ежедневная работа",
+      items: [
+        "Kubernetes",
+        "Docker",
+        "GitLab CI/CD",
+        "Jenkins",
+        "Linux",
+        "Nginx",
+        "Prometheus",
+        "Grafana",
+        "Ansible",
+        "Bash",
+        "Git",
+      ],
+    },
+    {
+      title: "CI/CD & Delivery",
+      subtitle: "уверенно применяю",
+      items: ["ArgoCD", "Nexus", "CI/CD", "Alertmanager", "Sentry"],
+    },
+    {
+      title: "Автоматизация & IaC",
+      subtitle: "рабочий уровень",
+      items: ["Terraform", "Python"],
+    },
+    {
+      title: "Данные & смежное",
+      subtitle: "базовый опыт",
+      items: ["PostgreSQL", "MongoDB", "Redis", "ELK"],
+    },
+  ],
   skills: [
-  "Kubernetes",
-  "Docker",
-  "GitLab CI/CD",
-  "Jenkins",
-  "ArgoCD",
-  "Terraform",
-  "Ansible",
-  "Linux",
-  "Nginx",
-  "Prometheus",
-  "Grafana",
-  "Sentry",
-  "Python",
-  "Bash",
-  "Git",
-  "PostgreSQL",
-  "MongoDB",
-  "Redis",
-  "Nexus",
-  "CI/CD",
+    "Kubernetes",
+    "Docker",
+    "GitLab CI/CD",
+    "Jenkins",
+    "ArgoCD",
+    "Terraform",
+    "Ansible",
+    "Linux",
+    "Nginx",
+    "Prometheus",
+    "Grafana",
+    "Alertmanager",
+    "Sentry",
+    "Python",
+    "Bash",
+    "Git",
+    "Nexus",
+    "CI/CD",
+    "PostgreSQL",
+    "MongoDB",
+    "Redis",
   ],
   education: [
     {

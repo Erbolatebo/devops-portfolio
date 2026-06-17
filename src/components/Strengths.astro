@@ -1,0 +1,58 @@
+---
+import { profile } from "../data/profile";
+---
+
+<section id="strengths" class="section strengths-section">
+  <div class="container">
+    <p class="section-title">Фокус</p>
+    <h2 class="section-heading">Чем могу быть полезен команде</h2>
+    <div class="strengths-grid">
+      {
+        profile.strengths.map((item) => (
+          <article class="strength-card">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .strengths-section {
+    padding-top: 0;
+  }
+
+  .strengths-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .strength-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .strength-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+
+  .strength-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .strength-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+</style>

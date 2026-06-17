@@ -10,7 +10,10 @@ import { profile } from "../data/profile";
         Открыт к предложениям
       </p>
       <h1 class="hero-name">{profile.name}</h1>
-      <p class="hero-title">{profile.title}</p>
+      <p class="hero-title">
+        {profile.title}
+        <span class="hero-level">{profile.targetRole}</span>
+      </p>
       <p class="hero-tagline">{profile.tagline}</p>
       <div class="hero-meta">
         <span class="meta-item">
@@ -89,10 +92,26 @@ import { profile } from "../data/profile";
   }
 
   .hero-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
     font-size: clamp(1.25rem, 3vw, 1.75rem);
     font-weight: 500;
     color: var(--accent);
     margin-bottom: 16px;
+  }
+
+  .hero-level {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 999px;
   }
 
   .hero-tagline {

@@ -1,28 +1,5 @@
 ---
 import { profile } from "../data/profile";
-
-const categories = [
-  {
-    title: "CI/CD & GitOps",
-    items: ["GitLab CI/CD", "Jenkins", "ArgoCD", "CI/CD", "Git", "Nexus"],
-  },
-  {
-    title: "Контейнеризация & Оркестрация",
-    items: ["Kubernetes", "Docker", "Linux", "Nginx"],
-  },
-  {
-    title: "Мониторинг & Observability",
-    items: ["Prometheus", "Grafana", "Sentry"],
-  },
-  {
-    title: "Автоматизация & IaC",
-    items: ["Ansible", "Terraform", "Bash", "Python"],
-  },
-  {
-    title: "Базы данных",
-    items: ["PostgreSQL", "MongoDB", "Redis"],
-  },
-];
 ---
 
 <section id="skills" class="section">
@@ -31,9 +8,12 @@ const categories = [
     <h2 class="section-heading">Технологический стек</h2>
     <div class="skills-grid">
       {
-        categories.map((cat) => (
+        profile.skillCategories.map((cat) => (
           <div class="skill-group">
-            <h3>{cat.title}</h3>
+            <div class="skill-group-header">
+              <h3>{cat.title}</h3>
+              {cat.subtitle && <span class="skill-subtitle">{cat.subtitle}</span>}
+            </div>
             <div class="skill-tags">
               {cat.items.map((skill) => (
                 <span class="skill-tag">{skill}</span>
@@ -68,13 +48,22 @@ const categories = [
     padding: 24px;
   }
 
+  .skill-group-header {
+    margin-bottom: 16px;
+  }
+
   .skill-group h3 {
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--text-muted);
-    margin-bottom: 16px;
+    color: var(--text);
     text-transform: uppercase;
     letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+
+  .skill-subtitle {
+    font-size: 0.75rem;
+    color: var(--text-muted);
   }
 
   .skill-tags {
